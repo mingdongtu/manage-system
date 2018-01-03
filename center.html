@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>医药代表管理系统</title>
+<style type="text/css"> 
+body { margin:0; padding:0;}
+html, body, #center_warp { width:100%; height:100%;}
+.left_box { width:220px; height:100%; float:left; background:#00a6ba; overflow:hidden;}
+.right_box { overflow:hidden; height:100%;}
+.navPoint { position:absolute; display:block; width:45px; height:45px; background:url(images/control.png) no-repeat left top; left:196px; top:24px;background-size:contain;}
+/*.navPoint:hover {background:url(images/icon_10.png) no-repeat left -28px;}*/
+/*.lefthide .left_box{ display:none;}
+.lefthide .navPoint {background:url(images/icon_11.png) no-repeat left top; left:-2px; top:24px;}
+.lefthide .navPoint:hover {background:url(images/icon_11.png) no-repeat left -28px;}*/
+/*显示与隐藏*/
+.hide{
+    display:none;
+}
+.change_left{
+    left:-21px;
+    transform:rotate(90deg);
+}
+.news_warp { width:310px; background:#fff; position:absolute; bottom:0; right:20px; z-index:9999;box-shadow:0 2px 5px #999; border:1px solid #e2e2e2; border-radius:3px 3px 0 0;}
+.news_warp h2 { font-size:16px; color:#5fb63c; font-weight:normal; line-height:48px; border-bottom:1px solid #e2e2e2; margin:0; padding:0 0 0 35px;}
+.news_warp h2 a { text-decoration:none; color:#5fb63c;}
+.news_warp h2 a:hover { text-decoration:underline;}
+.news_warp h2 .closediv { width:50px; height:48px; float:right; background:#f8f8f8 url(images/icon_03a.png) no-repeat 20px top; padding-left:10px; font-size:14px; color:#5f5f5f; text-decoration:none;}
+.news_warp h2 .closediv.cur {background:#f8f8f8 url(images/icon_03a.png) no-repeat 20px -48px;}
+.news_warp h2 .closediv:hover { color:#333; text-decoration:underline;}
+.news_warp ul { padding:0; margin:0;padding:0 10px; font-size:14px; overflow:hidden; height:0;}
+.news_warp ul li { height:36px; line-height:36px; overflow:hidden; border-bottom:1px solid #f0f0f0;}
+.news_warp ul li img { width:27px; height:27px; border-radius:3px; float:left; margin-top:5px; margin-right:5px;}
+.news_warp ul li b { float:left; width:70px; font-weight:normal; color:#666;}
+.news_warp ul li span { color:#999; width:138px; float:left;overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.news_warp ul li em{font-style:normal; float:right; color:#999;}
+</style> 
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+// function switchSysBar(){
+// var tip=document.all("center_warp").className;
+// if (tip=="lefthide")
+// { 
+// 	document.all("center_warp").className="";
+// } 
+// else
+// { 
+// 	document.all("center_warp").className="lefthide";
+// }
+// }
+// function Switch(){
+// 	var closediv = $(".closediv");
+// 	var ul=$(".news_ul");
+//     if(closediv.hasClass("cur")){
+// 		closediv.removeClass("cur").html("展开");
+// 		ul.stop(true,true);
+// 		ul.animate({height:0});
+// 	}else{
+// 		closediv.addClass("cur").html("收起");
+// 		ul.css("height","auto");
+// 		var height=ul.height();
+// 		ul.css("height","0");
+// 		ul.stop(true,true);
+// 		ul.animate({height:height});
+// 	}
+// }
+// 点击按钮实现左侧栏的显示和隐藏
+
+function switchSysBar(){
+     // 点击时添加一个class，使其隐藏,判断判断是否隐藏
+     var isClass= $(".left_box").hasClass("hide");
+     if(isClass){
+             $(".left_box").removeClass('hide');
+             $(".navPoint").removeClass('change_left');
+     }else{
+             $(".left_box").addClass('hide');
+             $(".navPoint").addClass('change_left');
+          }
+}
+$(function(){
+	$(".news_ul li").click(function(e) {
+        $(this).remove();
+		$(".closediv").removeClass("cur").html("展开");
+		$(".news_ul").animate({height:0});
+    });
+});
+</script>
+</head>
+<body>
+<div id="center_warp">
+	<div id="frmTitle" name="fmTitle" class="left_box">
+    	<iframe name="I1" height="100%" width="250" src="left.html" id="I1" border="0" frameborder="0" scrolling="yes">浏览器不支持嵌入式框架，或被配置为不显示嵌入式框架。</iframe>
+    </div>
+    <div class="right_box">
+    	<iframe name="I2" id="I2" height="100%" width="100%" border="0" scrolling="yes" frameborder="0" src="tab/tab.html">浏览器不支持嵌入式框架，或被配置为不显示嵌入式框架。</iframe>
+    </div>
+    <a href="javascript:switchSysBar();" class="navPoint"></a>
+</div>
+<div class="news_warp">
+	<!--  -->
+</div>
+</body>
+</html>

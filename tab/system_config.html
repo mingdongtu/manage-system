@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <META HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+    <META HTTP-EQUIV="expires" CONTENT="0">
+  <title>系统配置</title>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+  <!-- <link rel="stylesheet" href="../css/common.css"> -->
+    <link rel="stylesheet" href="../css/pagination.css">
+  <link rel="stylesheet" type="text/css" href="../css/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../icon.css">
+  <script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../js/pagination.js"></script>
+    <script type="text/javascript" src="../js/global.js"></script>
+  <script type="text/javascript" src="../js/template.js"></script>
+    <script type="text/javascript" src="../js/system_config.js"></script>
+  <style>
+  *{
+    padding:0;
+    margin:0;
+  }
+  a{
+    text-decoration:none;
+     color:#000;
+  }
+.main_box{
+       color:#666666;
+}
+
+.content{
+    text-align:center;
+    margin-top:225px;
+}
+.content p{
+   font-size:36px;
+   color:#000;
+  margin-top:20px;
+
+}
+body{overflow:auto;}
+  .main_box{
+    /*height:100%;*/
+    width:100%;
+    background:#f2f2f2;
+    position:relative;
+      height:899px;
+   
+}
+
+/*列表部分*/
+
+.content_list{
+  height:calc(100% - 16px);
+  width:calc(100% - 32px);
+  background:#fff;
+  position:absolute;
+  top:16px;
+  left:16px;
+}
+
+
+table{
+  margin-left:20px;
+  margin-top:20px;
+  width:calc(100% - 40px);
+    border-collapse: collapse;
+}
+table th,tr td{
+  height:40px;
+  text-align:left;
+   font-size:14px;
+   color:#666666;
+
+}
+
+tr td:nth-of-type(3){position: relative;}
+
+table th:nth-of-type(1){padding-left:7px;}
+tr td:nth-of-type(1){
+  padding-left:15px;
+}
+tr td{
+  border-bottom:1px solid #eeeeee;
+    padding: 5px 0;
+
+}
+table th{
+  border-bottom:2px solid #eeeeee;
+
+}
+
+/*列表样式*/
+footer{
+  position:absolute;
+  left:55px;
+  bottom:166px;
+}
+.submit_btn{
+  display:inline-block;
+  width:90px;
+  height:37px;
+  border-radius:5px;
+  line-height:37px;
+  text-align:center;
+  background:#06c1ae;
+  margin-left:10px;
+  color:#fff;
+}
+  .submit_btn:hover{
+      background:#05ab9a;
+  }
+
+/*状态切换按钮*/
+ .status_btn{
+
+    width:52px;
+    height:24px;
+    border-radius:12px;
+    background:#e8e8e8;
+    position: relative;
+     transition:background 0.3s;
+    -moz-transition:background 0.3s;
+    -webkit-transition:background 0.3s;
+    -o-transition:background 0.3s;
+ }
+  .circle{
+    display: inline-block;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background:#fff;
+    position:absolute;
+    right:30px;
+    top:2px;
+    transition:right 0.3s;
+    -moz-transition:right 0.3s;
+    -webkit-transition:right 0.3s;
+    -o-transition:right 0.3s;
+  }
+
+  .change_btn{
+    background:#06c1ae;
+  }
+.circle_btn{
+    right:2px;
+  }
+/*适应屏幕尺寸*/
+.look_code,.edit,.delete{
+  color:#06c1ae;
+  cursor:pointer;
+}
+#config_list tr:hover{
+  background:#f5f5f5;
+}
+.config_line:hover{
+  background:#f5f5f5;
+}
+  .main_box .hide_pagination{
+      display:none;
+  }
+  td{
+      width:33.33%;
+      word-break:break-all;
+  }
+</style>
+
+
+</head>
+<body>
+  <div class="main_box">
+        <!-- 列表部分 -->
+        <div class="content_list">
+            <table class="table">
+              <tr>
+                <th>选择</th>
+                <th>配置选项</th>
+                <th>状态</th>
+              </tr>
+
+            <tbody id="config_list">
+           
+            </tbody>
+            <script id="config_data" type="text/html">
+
+               <% for(var i=0;i < data.length; i++){ %>
+                   <% var data1=data[i]; %>
+                        <tr class="config_line">
+                            <td><input type="checkbox" class="checkbox"></td>
+                            <td class="config_value"><%=data1.configValue%></td>
+                            <td><div class="status_btn"><span class="circle"></span></div></td>
+                        </tr>
+                <% } %>
+
+            </script>
+
+
+       
+            </table>
+        </div>
+<!--提交与分页部分 -->
+      <footer>
+       <div class="submit">
+         <input type="checkbox" id="choose">
+         <label for="choose" class="choose">全选</label>
+         <a href="javascript:;"  class="submit_btn">提交</a>
+       </div>
+        
+      </footer>
+
+          <!--分页部分 -->
+            <div class="pagination omit_hide">
+               <span class="img_prev"><img src="../images/prev_arrow.png" alt=""></span>
+               <span class="omit_show omit_hide">...</span>
+               <a href="javascript:;" class="active first_page" >1</a>
+               <a href="javascript:;">2</a>
+               <a href="javascript:;">3</a>
+               <a href="javascript:;">4</a>
+               <a href="javascript:;">5</a>
+               <span class="omit">...</span>
+               <a href="javascript:;" class="last_second">15</a>
+               <a href="javascript:;" class="last_one">16</a>
+               <span class="img_next"><img src="../images/next_arrow.png" alt=""></span>
+               <span id="pagination_text"> 当前第<span class="current_page">1</span>页/共<span class="total_pagination"></span>页</span>
+            </div>
+            <!-- 分页部分 -->
+
+</div>
+</body>
+</html>

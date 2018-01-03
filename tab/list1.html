@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>关联医药代表详情列表</title>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/pagination.css">
+    <link rel="stylesheet" href="../css/up_level.css">
+    <link rel="stylesheet" href="../css/btn.css">
+	<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../js/global.js"></script>
+    <script type="text/javascript" src="../js/pagination.js"></script>
+  <script type="text/javascript" src="../js/template.js"></script>
+    <script type="text/javascript" src="../js/list1.js"></script>
+	<style>
+.content{
+    text-align:center;
+    margin-top:225px;
+}
+.content p{
+   font-size:36px;
+   color:#000;
+  margin-top:20px;
+
+}
+.up_level{
+    left:30px;
+}
+/*适应屏幕尺寸*/
+.look_code,.edit,.delete{
+  color:#06c1ae;
+  cursor:pointer;
+}
+.no_pagination{
+    display:none;
+}
+.main_box .hide_pagination{
+    display:none;
+}
+td{
+    width:25%;
+    word-break:break-all;
+}
+        .medicine_line:hover{
+            background: #f5f5f5;
+            color: #000;
+        }
+</style>
+
+</head>
+<body>
+	<div class="main_box">
+        <!-- 搜索部分 -->
+        <div class="search">
+            <a class="up_level" href="javascript:;">返回上一级</a>
+        </div>
+        <!-- 搜索部分 -->
+        <!-- 列表部分 -->
+        <div class="content_list">
+            <table class="table">
+              <tr>
+                <th>医药代表用户名</th>
+                <th>姓名</th>
+                <th>手机号</th>
+                <th>关联时间</th>
+               
+              </tr>
+            <tbody id="medicine_list">
+                 
+            </tbody>
+            <script type="text/html" id="medicine_data">
+               <% for(var i=0;i<data.length;i++){ %>
+                     <tr class="medicine_line">
+                         
+                          <td><%=data[i].username%></td>
+                          <td><%=data[i].truename%></td>
+                          <td><%=data[i].mobile%></td>
+                          <td><%=data[i].updateTime%></td>
+                                    
+                     </tr>
+                <%}%>
+            </script>
+
+            </table>
+        </div>
+        <!--分页部分 -->
+        <div class="pagination omit_hide">
+            <span class="img_prev"><img src="../images/prev_arrow.png" alt=""></span>
+            <span class="omit_show omit_hide">...</span>
+            <a href="javascript:;" class="active first_page" >1</a>
+            <a href="javascript:;">2</a>
+            <a href="javascript:;">3</a>
+            <a href="javascript:;">4</a>
+            <a href="javascript:;">5</a>
+            <span class="omit">...</span>
+            <a href="javascript:;" class="last_second">15</a>
+            <a href="javascript:;" class="last_one">16</a>
+            <span class="img_next"><img src="../images/next_arrow.png" alt=""></span>
+            <span id="pagination_text"> 当前第<span class="current_page">1</span>页/共<span class="total_pagination"></span>页</span>
+        </div>
+        <!-- 分页部分 -->
+
+
+</div>
+</body>
+</html>

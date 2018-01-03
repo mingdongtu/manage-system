@@ -1,0 +1,10 @@
+/*返回栏目*/
+.search{
+    font-size:14px;
+    height:65px;
+    width:calc(100% - 32px);
+    background:#fff;
+    position:absolute;
+    top:16px;
+    left:16px;
+}

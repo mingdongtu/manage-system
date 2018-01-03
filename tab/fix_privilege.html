@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>权限组列表</title>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+  <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/btn.css">
+	<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="../js/change_privilege.js"></script>
+	<style>
+.main_box{
+  color:#000;
+  font-size:14px;
+}
+.section_1{
+  position:absolute;
+  width:calc(100% - 32px);
+  height:218px;
+  left:16px;
+  top:16px;
+  background:#fff;
+}
+.privilege_name{
+  margin-top:30px;
+  margin-bottom:17px;
+}
+.privilege_name input{
+  display:inline-block;
+  width:180px;
+  height:31px;
+  border-radius:5px;
+  border:1px solid #e8e8e8;
+  padding-left:10px;
+}
+.text_left{
+  display: inline-block;
+  width:108px;
+  text-align:right;
+}
+textarea{border-radius:5px;padding-left:10px;padding-top:10px;border:1px solid #e8e8e8;}
+.remark_text{
+  height:120px;
+  vertical-align:top;
+}
+/*权限编辑*/
+.edit_content{
+   margin-left:30px;
+   margin-top:30px;
+}
+.edit_p{
+  position:absolute;
+  width:calc(100% - 32px);
+  /*height:calc(100%- 234px);*/
+  height:665px;
+  left:16px;
+  top:240px;
+  background:#fff;
+}
+.edit_title{
+  font-size:16px;font-weight:bold;
+  vertical-align:top;border-bottom:1px solid #f2f2f2;
+  line-height:46px;margin-bottom:30px;
+}
+.edit_p label{
+  margin-right:30px;
+    
+  
+}
+.edit_content>div{
+  margin-bottom:30px;
+}
+.edit_content>div input{
+  display:inline-block;
+  height:15px;
+  width:15px;
+  vertical-align:-16%;
+  background:#000;
+  margin-right:10px;
+  /*vertical-align:text-top;*/
+}
+.save_change{
+  width:100px;
+  height:37px;
+  border-radius:5px;
+  line-height:37px;
+  text-align:center;
+  background:#06c1ae;
+  color:#fff;
+  font-size:16px;
+  cursor:pointer;
+}
+.some_level{
+  font-weight:bold;
+  font-size:14px;
+}
+.warn{color:red;}
+</style>
+
+</head>
+<body >
+	<div class="main_box">
+	   <div class="section_1">
+        <div   class="privilege_name">
+           <span class="text_left">权限组名称：</span><input type="text" placeholder="超级管理员" id="privilege_name">
+        </div>
+         <div ng-app="">
+           <span class="text_left remark_text">备注：</span>
+           <textarea name="" id="textarea" cols="30" rows="7" placeholder="您已成为超级管理员，不通过理由"></textarea>
+           <span><span class="current_number">12</span>/120</span>
+        </div>
+     </div>
+     <!-- 权限编辑 -->
+     <div class="edit_p">
+          <div class="edit_content">
+              <a href="javascript:;" class="edit_title">权限编辑</a>
+          </div>
+     </div>
+</div>
+</body>
+</html>

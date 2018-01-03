@@ -1,0 +1,52 @@
+/*模态框组件*/
+.modal{
+   width:100%;
+   height:100%;
+   background:#b2b2b2;
+   opacity:0.5;
+   position:absolute;
+   top:0;
+   left:0;
+}
+.modal_content{
+    position:absolute;
+    width:300px;
+    height:200px;
+    background:#fff;
+    left:50%;
+    top:100px;
+    margin-left:-150px;
+    border-radius:20px;
+    /*z-index:1000;*/
+    opacity:2;
+
+}
+.modal_content p{
+  text-align:center;
+  margin-top:80px;
+  font-size:18px;
+
+}
+.modal_content span{
+  display:inline-block;
+  width:50px;
+  height:25px;
+  color:#fff;
+  background:#05bcb1;
+  border-radius:5px;
+  text-align:center;
+  line-height:25px;
+  cursor:pointer;
+position:absolute;
+left:50%;
+margin-left:-25px;
+top:150px; 
+}
+
+.modal_hide{
+  display:none;
+  color:red;
+}
+.edit_content input:disabled, textarea:disabled {
+    background:#fff;
+}

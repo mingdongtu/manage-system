@@ -1,0 +1,104 @@
+<!DOCTYPE html">
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>健康管理系统头部</title>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+
+<style type="text/css">
+body { margin:0; padding:0; font-size:16px; color:#666;font-family:"Microsoft Yahei"; }
+a { outline: none; text-decoration:none;}
+dl,dt,dd,p { padding:0; margin:0;}
+.heard { width:100%;position: relative;height:65px;}
+.logo { width:158px; height:43px; display:block; float:left; margin:13px 20px 0 30px;}
+.logo img { border:0 none;}
+.logo_r { float:left; font-size:20px; color:#06c1ae; font-weight:bold;line-height:30px; border-left:1px solid #cfcfcf; padding-left:15px; margin-top:25px;}
+.quit { width:68px; height:74px; display:block; float:right; border-left:1px solid #e2e2e2; text-indent:-9999px; background:url(images/quit.png) no-repeat left top;}
+.quit:hover { background-position:left -74px;}
+.top_dl { float:right; padding:15px 0; width:282px; height:44px;}
+.top_dl dt { width:44px; height:44px; float:left; margin-right:15px;  overflow:hidden; border-radius:50%;}
+.top_dl dt img { width:44px;}
+.top_dl dd { line-height:22px; font-size:14px; color:#9e9e9e;}
+.top_dl dd .message { color:#666; font-size:16px;}
+.top_dl dd .message span { color:#5fb63c;}
+.top_dl dd .message a{ width:17px; height:17px; font-size:12px;text-align:center; line-height:17px; border-radius:50%; background:#d71717; color:#fff; position:absolute;}
+
+
+/*后期添加*/
+.message{
+    position:absolute;
+    /*float:left;*/
+    right:20px;
+    width:350px;
+    height:18px;
+    display:flex;
+    justify-content: space-between;
+    top:50%;
+    margin-top:-8px;
+    font-size:14px;
+    vertical-align: middle;
+    color:#000;
+}
+.message .line{
+    display:inline-block;
+    height:100%;
+    width:1px;
+    background:#dddddd;
+}
+.message a{
+    color:#46caba;
+}
+.message a:nth-of-type(1){
+    margin-right:5px;
+}
+.dis{
+    display:none;
+}
+</style>
+
+<script>
+$(function(){
+   var url1='http://192.168.2.36:38099';
+    $(".uname").html(localStorage.getItem('username'));
+    $('.manager_level').html(localStorage.getItem('roleName'));
+// 点击退出系统操作
+        $(".log_out").click(function(event){
+
+        var token=localStorage.getItem('access_token');
+  if(token==null){
+        if(top.location != self.location){
+            top.location = self.location
+        }
+    }
+            var out_obj={uid:localStorage.getItem('uid'),access_token:localStorage.getItem('access_token')};
+               $.get("/user/logout",out_obj,function(data){
+                   if(data.errcode==0){
+                      localStorage.clear();
+                    $(window.parent).attr('location','login.html');
+                   }else{ alert("退出失败！")}
+               })
+        })
+
+
+
+
+
+})
+</script>
+</head>
+<body>
+<div class="heard">
+	<a href="http://www.youdeyi.com/" target="_blank" class="logo"><img src="images/logo3.png" /></a>
+    <span class="logo_r">医药代表管理系统</span>
+  
+    <div class="message">
+      <span>欢迎您，<span class="uname" style="color:#46caba">  张三丰 </span>!</span>
+      <span class="manager_level">普通管理员</span>
+      <span class="line"></span>
+      <a href="tab/change_code.html" target="I2" class="code_change">修改密码</a>
+      <span class="line"></span>
+      <a href="javascript:;" target="I2" class="log_out">退出系统</a>
+    </div>
+</div>
+</body>
+</html>

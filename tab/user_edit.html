@@ -1,0 +1,115 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用户编辑</title>
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<!--[if lt IE 9]>
+	<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+  <link rel="stylesheet" href="../css/modal.css">
+  <link rel="stylesheet" href="../css/user_edit.css">
+	<link rel="stylesheet" href="../css/btn.css">
+	<!--<link rel="stylesheet" href="../css/up_level.css">-->
+	<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="../js/global.js"></script>
+  <script type="text/javascript" src="../js/user_edit.js"></script>
+
+
+</head>
+<body>
+	<div class="main_box">
+
+		<!--&lt;!&ndash; 搜索部分 &ndash;&gt;-->
+		<!--<div class="search">-->
+          <!--<a class="up_level" href="javascript:;">返回上一级</a>-->
+		<!--</div>-->
+		<!--&lt;!&ndash; 搜索部分 &ndash;&gt;-->
+
+		<div class="edit_content">
+			<div class="user_img1">
+				<span class="left_text">头像：</span>
+        <span class="head_img">
+          <!-- <input type="file" class="file_0"> -->
+          <img src="" alt="" >
+        </span>
+				
+			</div>
+			<div class="common">
+				<span class="left_text">用户名：</span>
+				<input type="text" placeholder=""  class="username" disabled="disabled">
+        <span  class="username_warn"></span>
+			</div>
+			<div  class="common">
+				<span class="left_text">姓名：</span>
+				<input type="text" placeholder="" class="truename" disabled="disabled">
+        <span  class="truename_warn"></span>
+			</div>
+			<div class="sex">
+				<span class="left_text">性别：</span>
+				<input type="radio" id="sex_man" class="sex_man" disabled="disabled">
+				<label for="sex_man">男</label>
+				<input type="radio" id="sex_woman" disabled="disabled">
+				<label for="sex_woman">女</label>
+			</div>
+			<div class="common">
+				<span class="left_text">手机号码：</span>
+				<input type="text" placeholder="" class='mobile_num' disabled="disabled">
+        <span  class="mobile_warn"></span>
+			</div>
+			<div class="common">
+				<span class="left_text">所属公司：</span>
+				<input type="text" placeholder="" id="common_input" class="company" disabled="disabled">
+        <span  class="company_warn"></span>
+			</div>
+			<div class="common">
+				<span class="left_text">证件号码：</span>
+				<input type="text" placeholder="" id="common_input" class="id_msg" disabled="disabled">
+        <span  class="card_warn"></span>
+			</div>
+            <!-- 上传身份证件 -->
+            <div class="upload">
+            	<span class="left_text">身份证照：</span>
+            	<div class="upload_img">
+            		<div class="upright">
+	            		<!-- <input type="file" class="file_1"> -->
+	            		<img src="../images/upright_card.png" alt="">
+            		</div>
+            		<div class="down">
+            		    <!-- <input type="file" class="file_2"> -->
+            		    <img src="../images/down_card.png" alt="">
+            		</div>
+            	</div>
+            </div>
+            
+      <div class="check">
+        <span class="left_text">是否审核通过：</span>
+        <input type="radio" id="check_yes">
+        <label for="sex_man">是</label>
+        <input type="radio" id="check_no">
+        <label for="sex_woman">否</label>
+      </div>
+    <textarea name="" id="textarea" cols="60" rows="7" placeholder="不通过理由"></textarea>
+  <span class="reason reason_hide">*必须输入不通过理由！</span>
+      <div class="forbid">
+        <span class="left_text">是否禁止登录：</span>
+        <input type="radio" id="yes">
+        <label for="sex_man">是</label>
+        <input type="radio" id="no">
+        <label for="sex_woman">否</label>
+      </div>
+      <a class="save_message save_btn">保存</a>
+		</div>
+    <!-- 自制造模态框组件 -->
+    <div class="modal modal_hide"></div>
+    <div class="modal_content modal_hide">
+          <p></p>
+          <span class="confirm">确定</span>
+       </div>
+<!-- 自制造模态框组件 -->
+	</div>
+  <!-- <div class="modal modal_hide"></div> -->
+</body>
+</html>

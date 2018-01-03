@@ -1,0 +1,32 @@
+.pagination{
+  width:422px;
+  position:absolute;
+  bottom:100px;
+  left:50%;
+  margin-left:-211px;
+  display:flex;
+  justify-content: space-between;
+  font-size:14px;
+}
+.pagination img{
+    vertical-align:1%;
+     width:7px;
+     height:11px;
+}
+#pagination_text{font-size:14px;}
+.current_page{color:#06c1ae;}
+.pagination a,.img_prev,.img_next{
+  display:inline-block;
+  width:22px;
+  height:22px;
+  text-align:center;
+  line-height:22px;
+  cursor:pointer;
+}
+
+.active{
+  background:#06c1ae;
+  border-radius:3px;
+  color:#fff;
+}
+.omit_hide{display:none;}

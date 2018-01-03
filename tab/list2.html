@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>关联医生详情列表</title>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+  <link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" type="text/css" href="../css/easyui.css">
+    <!--<link rel="stylesheet" href="../css/up_level.css">-->
+	<link rel="stylesheet" type="text/css" href="../icon.css">
+   <link rel="stylesheet" href="../css/pagination.css">
+    <link rel="stylesheet" href="../css/btn.css">
+    <link rel="stylesheet" href="../css/select.css">
+	<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../js/pagination.js"></script>
+    <script type="text/javascript" src="../js/global.js"></script>
+    <script type="text/javascript" src="../js/template.js"></script>
+    <script type="text/javascript" src="../js/list2.js"></script>
+    <script type="text/javascript" src="../js/jquery.select.js"></script>
+	<style>
+.content{
+    text-align:center;
+    margin-top:225px;
+}
+.content p{
+   font-size:36px;
+   color:#000;
+  margin-top:20px;
+
+}
+/*搜索部分*/
+.search{
+  font-size:14px; 
+  height:65px;
+  width:calc(100% - 32px);
+  background:#fff;
+  position:absolute;
+  top:16px;
+  left:16px;
+}
+
+.search_condition{
+  width:100%;
+  height:36px;
+  position:absolute;
+  top:50%;
+  margin-top:-18px;
+}
+
+.search_content{
+  display:inline-block;
+  height:32px;
+  width:188px;
+  border:1px solid #eeeeee;
+  border-top-left-radius:5px;
+  border-bottom-left-radius:5px;
+  border-right:none;
+    padding-left:5px;
+}
+#select{
+  width:87px;
+  height:34px;
+  border:1px solid #eeeeee;
+  margin-left:-3px;
+  top:1px;
+  /*margin-top:1px;*/
+  position:absolute;
+}
+.search_text{
+  margin-left:18px;
+}
+.up_level{
+    right:30px;
+}
+.digest_time{
+  margin-left:100px;
+  margin-right:7px;
+}
+
+/*列表部分*/
+.content_list{
+  height:calc(100% - 90px);;
+  top:90px;
+}
+/*适应屏幕尺寸*/
+.look_code,.edit,.delete{
+  color:#06c1ae;
+  cursor:pointer;
+}
+#doctor_list .doctor_drug{cursor:pointer;color:#06c1ae;}
+.doctor_drug:hover{  color: rgb(10, 148, 134);}
+.main_box .hide_pagination{
+    display:none;
+}
+td{
+    width:20%;
+    word-break:break-all;
+}
+.up_level{
+right:30px;
+}
+.search_btn{
+    position: absolute;
+    left: 368px;
+}
+.present_line:hover{
+    background:#f5f5f5;
+}
+</style>
+
+</head>
+<body>
+	<div class="main_box">
+	
+        <!-- 搜索部分 -->
+        <div class="search">
+           <div class="search_condition">
+              <span class="search_text">查找：</span>
+              <input type="text" class="search_content">
+               <div class="select">
+                   <i></i>
+                   <input type="text" class="select_content" readonly="readonly" placeholder="-请选择-">
+                   <ul>
+                       <li><a href="javascript:;">医生姓名</a></li>
+                   </ul>
+               </div>
+              <!--<select name="" id="select">-->
+                <!--<option value="医生姓名">医生姓名</option>-->
+
+              <!--</select>-->
+             
+              <a class="search_btn">搜索</a>
+               <a class="up_level">返回上一级</a>
+           </div>
+        </div>
+        <!-- 搜索部分 -->
+        <!-- 列表部分 -->
+        <div class="content_list">
+            <table class="table">
+                <colgroup>
+                    <col width="20%">
+                    <col width="20%">
+                    <col width="20%">
+                    <col width="20%">
+                    <col width="20%">
+
+                </colgroup>
+              <tr>
+                <th>医生姓名</th>
+                <th>所属医院</th>
+                <th>所属科室</th>
+                <th>关联药品</th>
+                <th>关联时间</th>
+              </tr>
+           <tbody id="doctor_list">
+                 
+            </tbody>
+            <script type="text/html" id="doctor_data">
+               <% for(var i=0;i<data.length;i++){ %>
+                     <tr  class="present_line">
+                         
+                          <td><%=data[i].name%></td>
+                          <td><%=data[i].hosName%></td>
+                          <td><%=data[i].deptname%></td>
+                          <td class="doctor_drug"><%=data[i].drugCodeCount%></td>
+                          <td><%=data[i].createTime%></td>
+                                    
+                     </tr>
+                <%}%>
+            </script>
+
+           
+            </table>
+        </div>
+        <!--分页部分 -->
+        <div class="pagination omit_hide">
+            <span class="img_prev"><img src="../images/prev_arrow.png" alt=""></span>
+            <span class="omit_show omit_hide">...</span>
+            <a href="javascript:;" class="active first_page" >1</a>
+            <a href="javascript:;">2</a>
+            <a href="javascript:;">3</a>
+            <a href="javascript:;">4</a>
+            <a href="javascript:;">5</a>
+            <span class="omit">...</span>
+            <a href="javascript:;" class="last_second">15</a>
+            <a href="javascript:;" class="last_one">16</a>
+            <span class="img_next"><img src="../images/next_arrow.png" alt=""></span>
+            <span id="pagination_text"> 当前第<span class="current_page">1</span>页/共<span class="total_pagination"></span>页</span>
+        </div>
+        <!-- 分页部分 -->
+
+</div>
+</body>
+</html>

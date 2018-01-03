@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="images/icon.ico" rel="shortcut icon">
+    <title>登录页面</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.js"></script>
+    <script type="text/javascript" src="js/global.js"></script>
+    <script src="js/aes.js"></script>
+    <script src="js/share.js"></script>
+
+
+    <style>
+
+    </style>
+
+</head>
+<div class="main">
+    <div class="bac_img"></div>
+    <div class="main_content">
+        <div class="img"><img src="images/logo.png" alt=""></div>
+        <div class="content_list">
+            <div class="lists">
+                <p class="title">医药代表管理系统</p>
+
+                <div class="user_box">
+                    <input type="text" class="user" placeholder="用户名">
+                    <img src="images/lock.png" alt="" class="user_img">
+                    <img src="images/right.png" alt="" class="right_img">
+                    <img src="images/error.png" alt="" class="img_error">
+                    <span class="user_tip">你输入的用户名有误！</span>
+                </div>
+                <div  class="password_box">
+                    <input type="password" class="password" placeholder="密码">
+                    <img src="images/password.png" alt="" class="password_img">
+                    <img src="images/error.png" alt="" class="error_img">
+                    <img src="images/right.png" alt="" class="img_right">
+                    <span class="password_tip">你输入的密码有误！</span>
+                </div>
+                <div class="verify_item">
+                    <input type="text" class="verify_input" placeholder="验证码">
+                    <img src="images/verify.png" alt="" id="verify_img">
+                    <span class="change_code">换一张</span>
+                    <img src="" class='verifyImg'>
+                </div>
+                <p class="btn1">登录</p>
+            </div>
+        </div>
+    </div>
+    <!-- 自制造模态框组件 -->
+    <div class="modal modal_hide"></div>
+    <div class="modal_content modal_hide">
+        <p></p>
+        <span class="confirm">确定</span>
+    </div>
+    <!-- 自制造模态框组件 -->
+</div>
+
+</body>
+</html>

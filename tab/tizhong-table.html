@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>基本资料-健康管理系统</title>
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/fromyz.js"></script>
+<script type="text/javascript" src="../js/laydate.js"></script>
+<link href="../css/info.css" rel="stylesheet" type="text/css" />
+<link href="../css/common.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+<div class="main_box">
+	
+	
+    
+    <div class="shuju-title">
+         <span class="shuju-titlel fl">体重数据</span>
+         <div class="shuju-nav">
+              <ul>
+                  <li><a href="javascript:;">TA的体检数据</a>
+                      <ul class="c">
+                          <b class="shuju-arrow"></b>
+                          <li><a href="xueya-table.html">TA的血压数据</a></li>
+                          <li><a href="xuezhi-table.html">TA的血脂数据</a></li>
+                          <li><a href="xuetang-table.html">TA的血糖数据</a></li>
+                          <li><a href="tizhong-table.html">TA的体重数据</a></li>
+                      </ul>
+                  </li>
+                  <li class="fg">|</li>
+                  <li><a href="javascript:;">TA的健康信息</a>
+                      <ul class="c">
+                          <b class="shuju-arrow"></b>
+                          <li><a href="javascript:;">TA的病史信息</a></li>
+                          <li><a href="javascript:;">TA的生活方式</a></li>
+                      </ul>
+                  </li>
+                  <li class="fg">|</li>
+                  <li><a href="javascript:;">TA的问诊记录</a></li>
+                  <li class="fg">|</li>
+                  <li><a href="javascript:;">TA的咨询记录</a></li>
+                  <li class="fg">|</li>
+                  <li><a href="javascript:;">TA的基础资料</a></li>
+                  <li class="fg">|</li>
+                  <li><a href="javascript:;">返回会员列表</a></li>
+              </ul>
+         </div>
+    </div>
+    
+    
+    
+    
+    
+    <div class="Member_warp">
+    	<dl>
+        	<dt><img src="../images/tx01.jpg" /></dt>
+            <dd>
+            	<div class="c" style="padding-top:7px;">
+                      <div style="float:left; padding-right:40px;">董存瑞<span class="green">已开通</span><span class="red">未开通</span><span class="bule">已过期</span></div>
+                      <span class="shuju-icon01 fl">手机号码：18070159159</span>
+                      <div class="Issue_icon fl" style="margin-left:50px;">主要健康问题：亚健康、肥胖</div>
+                </div>
+                
+                <div class="c" style="padding-top:7px;">
+                     <span class="Stars_warp fl"><i style="width:80%"></i></span>
+                     <div class="shuju-icon02 fl">接受随访方式：消息推送、电话、邮件</div>
+                </div>
+            </dd>
+        </dl>
+        <div class="Member_botton">
+            <a href="#" id="refuse" class="button_trans">拒绝咨询</a>
+            <a href="#" id="forbid" class="button_trans">禁止登录</a>
+        </div>
+    </div>
+    
+   
+    
+    <div class="optionbox c">
+        
+         <div class="c" style="width:100%; padding-top:10px;">
+             <span class="fl">数据时间：</span>
+             <input class="text time fl" id="date1" style="width:150px;" onclick="laydate({elem:'#date1'});" value="" name="" type="text" />
+             <span class="fl pl5 pr5">至</span>
+             <input class="text time fl" style="width:150px;" id="date2" onclick="laydate({elem:'#date2'});" value="" name="" type="text" />
+             
+             <span class="fl ml20">数据来源：</span>
+             <div class="input_warp fl" style="width:230px; border-bottom-right-radius:0px; border-top-right-radius:0px;">
+                  <i>--请输入数据--</i>
+                  <input name="" id="source" type="text" />
+             </div>
+             <div class="select_warp fl" style="width:105px; height:42px; border:none; padding:0px; background:url(../images/xiala.png) right no-repeat; z-index:999;">
+                  <ul style="width:103px;">
+                       <li><a href="javascript:;">全部</a></li>
+                       <li><a href="javascript:;">药店</a></li>
+                       <li><a href="javascript:;">设备获取</a></li>
+                       <li><a href="javascript:;">后台添加</a></li>
+                  </ul>
+                  <input style="width:66px; height:37px; line-height:37px; padding:0px 0px 0px 10px; margin-top:2px; background:#fcfcfd;" id="sourceqf" name="" type="text" value="全部" />
+             </div>
+             
+             <a href="javascript:searchfor();" class="button_green ml10 btn120">搜索</a>
+            
+             <a href="javascript:searchfor();" class="button_blue ml10 btn120 fr"><b class="shuju-icon03"></b>添加</a>
+        </div>
+        
+    </div>
+    
+   
+   
+    <table width="100%" border="0" align="center" class="table_box mt10" cellpadding="0" cellspacing="0">
+    	<thead>
+        	<tr>            
+                <th width="8%"><span>|</span>选择 </th>
+                <th width="12%"><span>|</span>时间</th>
+                <th width="11%"><span>|</span>身高（cm）</th>
+                <th width="10%"><span>|</span>体重（KG）</th>
+                <th width="9%"><span>|</span>BMI</th>
+                <th width="9%"><span>|</span>体重检测结果</th>
+                
+                <th width="10%"><span>|</span>BMI检测结果</th>
+                <th width="10%"><span>|</span>数据来源</th>
+                <th width="12%"><span>|</span>详细</th>
+                
+                <th width="9%">操作</th>
+			</tr>
+    	</thead>
+        <tbody>
+        	<tr>
+           	  <td>
+              <label class="forcheck">
+                     <em class="cart-checkbox fl unchecked check"><input type="checkbox" name="" value=""  /></em>
+              </label>
+              </td>
+              <td>2015-8-20 15:09:23</td>
+              <td>187</td>
+              <td>78</td>
+              <td>1.70</td>
+              <td>正常</td>
+              <td>肥胖</td>
+              <td>药店</td>
+              <td>海王星辰花园店</td>
+              <td><a href="http://www.youdeyi.com/" class="red_a" onclick="return mydialog(this);">删除</a></td>
+            </tr>
+            
+            
+            
+            
+            
+        </tbody>
+    </table>
+    
+    <div class="c">
+    
+    <div class="fl" style="padding-top:20px;">
+        <label class="forcheck">
+              <em class="cart-checkbox unchecked fl check-all check"><input type="checkbox" name="" value=""  /></em>
+              <i class="fl ml5">全选</i>
+       </label>
+       
+       <a class="ml15" href="javascript:;">删除所选</a>
+    </div>
+    
+    <div class="page-box fr" style="width:auto; padding:20px 0px;">
+       <button type="button" class="firstpage">&nbsp;</button>
+       <a style="cursor:default;" class="page-prev" href="javascript:">&nbsp;</a>
+       <span>1</span>
+       <a href="javascript:;">2</a>
+       ...
+       <a href="javascript:;">10</a>
+       <a href="javascript:;">11</a>
+       <a href="javascript:;">12</a>
+       <a class="page-next" href="javascript:;">&nbsp;</a>
+       <button type="button" class="lastpage">&nbsp;</button> 
+       <input type="text" class="page-box-input">
+       <button type="button" class="page-box-btn">&nbsp;</button>
+       /共12页，1200条
+  </div>
+  
+  </div> 
+    
+</div>
+<script language="javascript">
+
+$(document).ready(function() {
+	$('.shuju-nav li').hover(function() {
+	   $(this).find('ul').css('display', 'block');
+	   }, function(){
+	   $(this).find('ul').css('display', 'none');
+	});
+});
+
+//全选checkbox
+var cs=1;
+var selectInputs = $("label .check");
+var checkAllInputs = $(".check-all");
+  $(document).on("click","label .check",function(){
+	if(cs==1){
+	if($(this).hasClass("check-all")){
+		if($(this).hasClass("checked")){
+			$("label .check").removeClass("checked");
+		}
+		else{
+			$("label .check").addClass("checked");
+		}
+	}else{
+		$(this).toggleClass("checked");
+	}
+	for(var i = 0; i < $("label .check").length; i++ ){
+		if(!$("label .check").eq(i).hasClass("checked")){
+			$(".check-all").removeClass("checked");
+		}
+		if($("label .check").eq(i).hasClass("checked")){
+			$("label .check").eq(i).children(".child").attr("checked",true);
+		}else{
+			$("label .check").eq(i).children(".child").attr("checked",false);
+		}
+	}
+	}
+	cs++
+	setTimeout(function (){ 
+	cs=1; 
+	}, 400);   
+}); 
+
+
+$(function(){
+$("#refuse").click(function(){
+	var This=$(this);
+	if(This.hasClass("cur")){
+		This.removeClass("cur");
+		mytips("该用户设置重新接受咨询成功");
+	}else{
+		This.addClass("cur");
+		mytips("该用户已设置拒收咨询成功");
+	}
+});
+$("#forbid").click(function(){
+	var This=$(this);
+	if(This.hasClass("cur")){
+		This.removeClass("cur");
+		mytips("该用户设置重新允许登陆成功");
+	}else{
+		This.addClass("cur");
+		mytips("该用户已设置禁止登陆成功");
+	}
+});
+
+
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <META HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+    <META HTTP-EQUIV="expires" CONTENT="0">
+	<title>用户管理</title>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/pagination.css">
+  <link rel="stylesheet" href="../css/user_manage.css">
+    <link rel="stylesheet" href="../css/btn.css">
+    <link rel="stylesheet" href="../css/select.css">
+	<link rel="stylesheet" type="text/css" href="../css/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../icon.css">
+ 
+  <script src="http://apps.bdimg.com/libs/jquery/1.8.0/jquery.js"></script>
+  <script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../js/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../js/pagination.js"></script>
+    <script type="text/javascript" src="../js/global.js"></script>
+  <script type="text/javascript" src="../js/template.js"></script>
+  <script type="text/javascript" src="../js/public.js"></script>
+    <script type="text/javascript" src="../js/jquery.select.js"></script>
+
+
+</head>
+<body style="position:relative;">
+	<div class="main_box">
+        <!-- 搜索部分 -->
+        <div class="search">
+           <div class="search_condition">
+               <span class="search_text">查找：</span>
+               <input type="text" class="search_content">
+             <div class="select">
+                 <i></i>
+                 <input type="text" class="select_content" readonly="readonly"  placeholder="-请选择-">
+                 <ul>
+                     <li>
+                         <a href="javascript:;">手机号码</a>
+                     </li>
+                     <li>
+                         <a href="javascript:;">用户名</a>
+                     </li>
+                     <li>
+                         <a href="javascript:;">姓名</a>
+                     </li>
+                     <li>
+                         <a href="javascript:;">证件号码</a>
+                     </li>
+                     <li>
+                         <a href="javascript:;">公司</a>
+                     </li>
+                 </ul>
+             </div>
+
+              <!--<select name="" id="select">-->
+                <!--<option value="手机号码">手机号码</option>-->
+                <!--<option value="用户名">用户名</option>-->
+                <!--<option value="姓名">姓名</option>-->
+                <!--<option value="证件号码">证件号码</option>-->
+                <!--<option value="公司">公司</option>-->
+              <!--</select>-->
+               <div class="time_search">
+                   <span class="digest_time">注册时间</span>
+                   <input id="start_time" type="text"> — <input type="text" id="end_time">
+                   <a class="search_btn">搜索</a>
+               </div>
+
+           </div>
+        </div>
+        <!-- 搜索部分 -->
+        <!-- 列表部分 -->
+        <div class="content_list">
+            <table class="table">
+                <colgroup>
+                    <col width="11%">
+                    <col width="5%">
+                    <col width="5%">
+                    <col width="11%">
+                    <col width="11%">
+                    <col width="11%">
+                    <col width="11%">
+                    <col width="5%">
+                    <col width="11%">
+                    <col width="5%">
+                    <col width="5%">
+                    <col width="5%">
+                    <col width="5%">
+                </colgroup>
+              <tr>
+
+                <th>用户名</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>手机号</th>
+                <th>证件号码</th>
+                <th>所属公司</th>
+                <th>注册日期</th>
+                <th>认证审核</th>
+                <th>认证编号</th>
+                <th>二维码名片</th>
+                <th>登录状态</th>
+                <th colspan="2">操作</th>
+              </tr>
+            <tbody id="user_manage_list">
+           
+            </tbody>
+            <script id="list_data" type="text/html">
+
+               <% for(var i=0;i < data.length; i++){ %>
+                   <% var data1=data[i]; %>
+                        <tr class="present_line">
+
+                            <td class="com_size"><%=data1.username%></td>
+                            <td><%=data1.truename%></td>
+                            <td class="transform_sex"><%=data1.sex%></td>
+                            <td class="com_size"><%=data1.mobile%></td>
+                            <td class="com_size"><%=data1.identification_code%></td>
+                            <td class="com_size"><%=data1.company%></td>
+                            <td class="com_size"><%=data1.create_time%></td>
+                            <td class="transform_check"><%=data1.status%></td>
+                            <td class="com_size"><%=data1.delegate_no%></td>
+                            <td><a href="javascript:;" class="look_code ">查看</a></td>
+                            <td class="transform_login"><%=data1.is_login%></td>
+                            <td class=""><a href="javascript:;" class="edit ">编辑</a></td>
+                            <td class=""><a href="javascript:;" class="delete ">删除</a></td>
+                        </tr>
+                <% } %>
+
+            </script>
+            </table>
+             <!--分页部分 -->
+            <div class="pagination omit_hide">
+               <span class="img_prev"><img src="../images/prev_arrow.png" alt=""></span>
+               <span class="omit_show omit_hide">...</span>
+               <a href="javascript:;" class="active first_page" >1</a>
+               <a href="javascript:;">2</a>
+               <a href="javascript:;">3</a>
+               <a href="javascript:;">4</a>
+               <a href="javascript:;">5</a>
+               <span class="omit">...</span>
+                <a href="javascript:;" class="last_second">15</a>
+               <a href="javascript:;" class="last_one">16</a>
+               <span class="img_next"><img src="../images/next_arrow.png" alt=""></span>
+               <span id="pagination_text"> 当前第<span class="current_page">1</span>页/共<span class="total_pagination"></span>页</span>
+            </div>
+            <!-- 分页部分 -->
+        </div>
+</div>
+<!-- 医药代表二维码 -->
+      <div class="back_box"></div>
+      <div class="img_box">
+         <div class="title_code"><p>医疗代表二维码</p><img src="../images/closed.png" alt="" class="close_img"></div>
+         <div class="include_code"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505731230861&di=06a345ecb345a5a67088649fd73cad67&imgtype=0&src=http%3A%2F%2Fpic1.fangketong.net%2Fapp_attach%2F201508%2F10%2F20150810_104_39484_1.jpg" alt="" class="code_img"></div>
+      </div>
+      
+<!-- 医药代表二维码 -->
+<!-- 自制造模态框组件 -->
+    <div class="modal modal_hide"></div>
+    <div class="modal_content modal_hide " >
+          <p>删除后信息将无法还原，确定删除？</p>
+          <span class="line"></span>
+          <div class="confirm_quit">
+              <span class="vertical_line"></span>
+             <span class="quit">取消</span>
+             <span class="confirm">确定</span>
+          </div>
+       </div>
+<!-- 自制造模态框组件 -->
+
+</body>
+</html>

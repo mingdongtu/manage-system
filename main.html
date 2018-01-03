@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="images/icon.ico" rel="shortcut icon">
+<title>医药代表管理系统</title>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<style>
+
+</style>
+<script>
+$(function () {
+    var token=localStorage.getItem('access_token')
+    console.log(token)
+//    if(token==null){
+//        window.location.href='login.html'
+//    }
+//    $(window).onbeforeunload(function(){
+//        alert("是否清除缓存！")
+//        localStorage.clear()
+//
+//    })
+})
+	
+</script>
+</head>
+<frameset rows="75,*" frameborder="no" border="0" framespacing="0" name="II" class="big_room">
+	<frame src="top.html" name="topFrame" scrolling="no" noresize="noresize" id="topFrame" />
+    <frame src="center.html" name="mainFrame" id="mainFrame"  width="100%" height="100%" />
+    <noframes>
+        <body>您的浏览器无法处理框架！</body>
+    </noframes>	
+</frameset>
+</html>

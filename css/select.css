@@ -1,0 +1,19 @@
+.select { border: 1px solid #e2e2e2; background:#fff;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    height:32px; width: 90px;display: inline-block;
+position: relative;
+    left: -4px;
+    top: -1px;
+}
+.select i { width:34px; height:32px;
+    display:block; position:absolute;
+    right:0; top:0;
+    background:url(../images/select_down.png) no-repeat center center;
+    border-right: 1px solid #e2e2e2;}
+.select input {border: 0 none;height: 21px;line-height: 21px;padding: 5px 5px;width: 100%; margin:0; border-radius:3px;}
+.select ul {position:absolute; left:-1px; right:-1px; top:32px; max-height:160px; overflow-y:auto; overflow-x:hidden;border: 1px solid #e2e2e2;border-radius: 0 0 3px 3px; background:#fff; display:none; font-size:14px;}
+.select ul li { width:100%; padding:0; float:left;}
+.select ul li a{ display:block; line-height:18px; padding:6px 10px; color:#666; text-decoration: none;word-break: break-all;word-wrap: break-word; white-space:normal;}
+.select ul li a:hover, .select ul li.cur a { background:#eceef3; color:#5fb63c;}
+.select select { display:none;}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>删除测试账户</title>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="../css/common.css">
+    <script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+    <style>
+    .content{
+    text-align:center;
+    margin-top:225px;
+    }
+    .content p{
+    font-size:36px;
+    color:#000;
+    margin-top:20px;
+
+    }
+    /*搜索部分*/
+    .search{
+    font-size:14px;
+    height:65px;
+    width:calc(100% - 32px);
+    background:#fff;
+    position:absolute;
+    top:16px;
+    left:16px;
+    }
+
+    .search_condition{
+    width:100%;
+    height:36px;
+    position:absolute;
+    top:50%;
+    margin-top:-18px;
+    }
+
+    .search_content{
+    display:inline-block;
+    height:32px;
+    width:188px;
+    border:1px solid #eeeeee;
+    border-top-left-radius:5px;
+    border-bottom-left-radius:5px;
+    border-right:none;
+    }
+    #select{
+    width:87px;
+    height:34px;
+    border:1px solid #eeeeee;
+    margin-left:-3px;
+    top:0px;
+    /*margin-top:1px;*/
+    position:absolute;
+    }
+    .search_text{
+    margin-left:18px;
+    }
+    .digest_time{
+    margin-left:100px;
+    margin-right:7px;
+    }
+    .search_btn{
+    display:inline-block;
+    height:34px;
+    width:122px;
+    border-radius:5px;
+    background:#06c1ae;
+    margin-left:100px;
+    text-align:center;
+    cursor:pointer;
+    line-height:34px;
+    color:#fff;
+    }
+
+    /*列表部分*/
+    .content_list{
+    height:calc(100% - 90px);
+    top:90px;
+        font-size:60px;
+        color:red;
+        font-weight:bold;
+        text-align:center;
+        line-height:100%;
+    }
+
+    /*适应屏幕尺寸*/
+    .look_code,.edit,.delete{
+    color:#06c1ae;
+    cursor:pointer;
+    }
+
+    #relate_list .present_num,#relate_list .doctor_num,#relate_list .drugstore_num{cursor:pointer;}
+
+    .present_line:hover{
+    background:#f5f5f5;
+    }
+    .present_num,.doctor_num,.drugstore_num{
+    color:#06c1ae;
+    }
+    .main_box .hide_pagination{
+    display:none;
+    }
+    td{
+    width:15%;
+    word-break:break-all;
+    }
+    </style>
+    <script>
+        var url="http://192.168.2.41";
+        $(function(){
+$(".search_btn").click(function(){
+        var obj={};
+        obj.uid=localStorage.getItem("uid");
+        obj.access_token=localStorage.getItem("access_token");
+        obj.mobile=String($(".search_content").val());
+        console.log($("#select").find("option:selected").val())
+        $.get(url+"/user/deleteMedicin",obj,function(data){
+               if(data.errcode==0){
+                   $(".content_list").html("恭喜你删除了自己的战友！")
+               }else{
+                   $(".content_list").html("删除战友失败！")
+               }
+        })
+})
+        })
+    </script>
+</head>
+
+<body>
+<div class="main_box">
+
+    <!-- 搜索部分 -->
+    <div class="search">
+        <div class="search_condition">
+            <span class="search_text">查找：</span>
+            <input type="text" class="search_content">
+            <!--<input type="text" class="select">-->
+            <select name="" id="select">
+                <option value="手机号码">手机号码</option>
+
+                <!-- <option value="手机号">手机号</option>
+                <option value="公司">公司</option>
+ -->             </select>
+
+            <span class="search_btn">删除测试账户</span>
+        </div>
+    </div>
+    <!-- 搜索部分 -->
+    <!-- 列表部分 -->
+    <div class="content_list">
+
+
+    </div>
+
+
+</div>
+</body>
+</html>

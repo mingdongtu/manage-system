@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <META HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+    <META HTTP-EQUIV="expires" CONTENT="0">
+	<title>权限组列表</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/pagination.css">
+  <link rel="stylesheet" href="../css/privilige.css">
+    <link rel="stylesheet" href="../css/btn.css">
+
+	<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../js/pagination.js"></script>
+    <script type="text/javascript" src="../js/global.js"></script>
+   <script type="text/javascript" src="../js/template.js"></script>
+  <script type="text/javascript" src="../js/privilege.js"></script>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+<body >
+	<div class="main_box">
+	
+        <!-- 搜索部分 -->
+        <div class="search">
+           <div class="search_condition">
+              <span class="search_text">权限组名称</span>
+              <input type="text" class="search_content search_content_1" placeholder="请输入权限组名称">
+             <!--  <span class="search_text">创建人</span>
+              <input type="text" class="search_content" placeholder="请输入创建人"> -->
+             
+              <span class="search_btn">查询</span>
+              <span class="add_btn">新增权限组</span>
+           </div>
+        </div>
+        <!-- 搜索部分 -->
+        <!-- 列表部分 -->
+        <div class="content_list">
+            <table class="table">
+                <colgroup>
+                    <col width="40%">
+                    <col width="40%">
+                    <col width="10%">
+                    <col width="10%">
+
+                </colgroup>
+              <tr>
+                <th>权限组名称</th>
+                <th>编辑时间</th>
+                <th colspan="2">操作</th>
+              </tr>
+            <tbody id="privilege_list">
+           
+            </tbody>
+            <script id="privilege_data" type="text/html">
+
+               <% for(var i=0;i < data.length; i++){ %>
+                   <% var data1=data[i]; %>
+                        <tr class="privilege_line">
+                            <td><%=data1.roleName%></td>
+                            <td><%=data1.updateTime%></td>
+                            
+
+                            <td class="com_size"><a href="javascript:;" class="revise">修改</a></td>
+                            <td class="com_size"><a href="javascript:;" class="delete_privilege">删除</a></td>
+                        </tr>
+                <% } %>
+
+            </script>
+
+
+             
+            </table>
+            <!--分页部分 -->
+            <div class="pagination omit_hide">
+               <span class="img_prev"><img src="../images/prev_arrow.png" alt=""></span>
+               <span class="omit_show omit_hide">...</span>
+               <a href="javascript:;" class="active first_page" >1</a>
+               <a href="javascript:;">2</a>
+               <a href="javascript:;">3</a>
+               <a href="javascript:;">4</a>
+               <a href="javascript:;">5</a>
+               <span class="omit">...</span>
+               <a href="javascript:;">15</a>
+               <a href="javascript:;">16</a>
+               <span class="img_next"><img src="../images/next_arrow.png" alt=""></span>
+               <span id="pagination_text"> 当前第<span class="current_page">1</span>页/共<span class="total_pagination">16</span>页</span>
+            </div>
+            <!-- 分页部分 -->
+        </div>
+<!-- 添加管理员模态框组件 -->
+<div class="modal modal_hide3"></div>
+    <div class="modal_content3 modal_hide3">
+       <p class="warn_content">删除后将无法恢复？</p>
+       <span class="quit_privilege">取消</span> <span class="give_privilege">确定</span>
+    </div>
+<!-- 添加管理员模态框组件 -->
+      
+</div>
+</body>
+</html>
